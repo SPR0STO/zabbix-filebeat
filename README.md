@@ -6,7 +6,7 @@ Basic filebeat monitoring plugin for zabbix
 
 - Check filebeat version; 
 - Check filebeat service status; 
-- Check if filebeat service is not active on the machine and alert with a trigger; 
+- Check if filebeat service is not active on the machine and alert with a trigger. 
 
 ## Requirements
 
