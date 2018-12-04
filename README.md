@@ -33,7 +33,7 @@ filebeat info.
 
 ## License
 
-This plugin is published under **GNU General Public License v3.0**. Feel free to use 
-and modify this as you need.
+This plugin is published under **GNU General Public License v3.0**. Feel free to
+use and modify this as you need.
 
 Copyright (©) [pr0sto](https://github.com/pr0sto), 2018
