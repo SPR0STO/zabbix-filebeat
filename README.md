@@ -30,9 +30,8 @@ Add node to the newly imported template.
 
 ## Important note
 
-This is a very little and basic plugin I wrote to monitor my resources. I just 
-wanted to share this if you also need a handy and simple plugin to check some 
-filebeat info.
+This is a very little and basic plugin. I just wanted to share this if you also 
+need a handy and simple plugin to check some filebeat info.
 
 ## License
 
