@@ -1,12 +1,15 @@
 # Filebeat Zabbix Template
 
-Basic filebeat monitoring plugin for zabbix
+Zabbix plugin for basic "filebeat" monitoring. 
 
 ## Features:
 
-- Check filebeat version; 
-- Check filebeat service status; 
-- Check if filebeat service is not active on the machine and alert with a trigger. 
+- Checking if filebeat service is not active on the machine and alert with a 
+trigger; 
+- Checking if filebeat version is changed on the machine and alert with a 
+trigger; 
+- Checking if no data about filebeat service status or filebeat version on the 
+machine and alert with a trigger. 
 
 ## Requirements
 
@@ -14,7 +17,7 @@ Basic filebeat monitoring plugin for zabbix
 
 ## Installation
 
-This only needs to be setup on the filebeat node.
+This only needs to be setup on the filebeat node and zabbix-server.
 
 ### Zabbix Agent
 
