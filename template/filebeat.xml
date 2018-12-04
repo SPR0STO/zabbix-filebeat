@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>3.4</version>
-    <date>2018-12-03T13:19:39Z</date>
+    <date>2018-12-04T07:20:25Z</date>
     <groups>
         <group>
             <name>Templates</name>
@@ -31,9 +31,9 @@
                     <key>filebeat.status</key>
                     <delay>{$FILEBEAT_TIMEOUT}</delay>
                     <history>90d</history>
-                    <trends>0</trends>
+                    <trends>1825d</trends>
                     <status>0</status>
-                    <value_type>4</value_type>
+                    <value_type>3</value_type>
                     <allowed_hosts/>
                     <units/>
                     <snmpv3_contextname/>
@@ -111,7 +111,7 @@
             <macros>
                 <macro>
                     <macro>{$FILEBEAT_TIMEOUT}</macro>
-                    <value>30s</value>
+                    <value>300s</value>
                 </macro>
             </macros>
             <templates/>
@@ -136,7 +136,7 @@
             <tags/>
         </trigger>
         <trigger>
-            <expression>{Filebeat:filebeat.status.regexp(active)}=0</expression>
+            <expression>{Filebeat:filebeat.status.last()}&lt;&gt;1</expression>
             <recovery_mode>0</recovery_mode>
             <recovery_expression/>
             <name>Filebeat Service is not active on {HOST.NAME}</name>
@@ -152,4 +152,38 @@
             <tags/>
         </trigger>
     </triggers>
+    <graphs>
+        <graph>
+            <name>Filebeat Status</name>
+            <width>900</width>
+            <height>200</height>
+            <yaxismin>0.0000</yaxismin>
+            <yaxismax>100.0000</yaxismax>
+            <show_work_period>1</show_work_period>
+            <show_triggers>1</show_triggers>
+            <type>0</type>
+            <show_legend>1</show_legend>
+            <show_3d>0</show_3d>
+            <percent_left>0.0000</percent_left>
+            <percent_right>0.0000</percent_right>
+            <ymin_type_1>0</ymin_type_1>
+            <ymax_type_1>0</ymax_type_1>
+            <ymin_item_1>0</ymin_item_1>
+            <ymax_item_1>0</ymax_item_1>
+            <graph_items>
+                <graph_item>
+                    <sortorder>0</sortorder>
+                    <drawtype>0</drawtype>
+                    <color>1A7C11</color>
+                    <yaxisside>0</yaxisside>
+                    <calc_fnc>7</calc_fnc>
+                    <type>0</type>
+                    <item>
+                        <host>Filebeat</host>
+                        <key>filebeat.status</key>
+                    </item>
+                </graph_item>
+            </graph_items>
+        </graph>
+    </graphs>
 </zabbix_export>
