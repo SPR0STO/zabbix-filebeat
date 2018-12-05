@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>3.4</version>
-    <date>2018-12-04T07:37:28Z</date>
+    <date>2018-12-05T09:17:24Z</date>
     <groups>
         <group>
             <name>Templates</name>
@@ -24,16 +24,16 @@
             </applications>
             <items>
                 <item>
-                    <name>Status</name>
+                    <name>Version</name>
                     <type>0</type>
                     <snmp_community/>
                     <snmp_oid/>
-                    <key>filebeat.status</key>
-                    <delay>{$FILEBEAT_TIMEOUT}</delay>
+                    <key>filebeat.version</key>
+                    <delay>{$FILEBEAT_RENEW}</delay>
                     <history>90d</history>
-                    <trends>1825d</trends>
+                    <trends>0</trends>
                     <status>0</status>
-                    <value_type>3</value_type>
+                    <value_type>1</value_type>
                     <allowed_hosts/>
                     <units/>
                     <snmpv3_contextname/>
@@ -65,16 +65,16 @@
                     <master_item/>
                 </item>
                 <item>
-                    <name>Version</name>
+                    <name>Status</name>
                     <type>0</type>
                     <snmp_community/>
                     <snmp_oid/>
-                    <key>filebeat.version</key>
-                    <delay>{$FILEBEAT_TIMEOUT}</delay>
+                    <key>proc.num[filebeat]</key>
+                    <delay>{$FILEBEAT_RENEW}</delay>
                     <history>90d</history>
-                    <trends>0</trends>
+                    <trends>1825d</trends>
                     <status>0</status>
-                    <value_type>1</value_type>
+                    <value_type>3</value_type>
                     <allowed_hosts/>
                     <units/>
                     <snmpv3_contextname/>
@@ -110,8 +110,12 @@
             <httptests/>
             <macros>
                 <macro>
+                    <macro>{$FILEBEAT_RENEW}</macro>
+                    <value>10m</value>
+                </macro>
+                <macro>
                     <macro>{$FILEBEAT_TIMEOUT}</macro>
-                    <value>300s</value>
+                    <value>3*{$FILEBEAT_RENEW}</value>
                 </macro>
             </macros>
             <templates/>
@@ -120,7 +124,7 @@
     </templates>
     <triggers>
         <trigger>
-            <expression>{Filebeat:filebeat.status.nodata({$FILEBEAT_TIMEOUT})}=1 or {Filebeat:filebeat.version.nodata({$FILEBEAT_TIMEOUT})}=1</expression>
+            <expression>{Filebeat:proc.num[filebeat].nodata({$FILEBEAT_TIMEOUT})}=1</expression>
             <recovery_mode>0</recovery_mode>
             <recovery_expression/>
             <name>Filebeat NoData from {HOST.NAME}</name>
@@ -136,7 +140,7 @@
             <tags/>
         </trigger>
         <trigger>
-            <expression>{Filebeat:filebeat.status.last()}&lt;&gt;1</expression>
+            <expression>{Filebeat:proc.num[filebeat].last()}&lt;&gt;1</expression>
             <recovery_mode>0</recovery_mode>
             <recovery_expression/>
             <name>Filebeat Service is not active on {HOST.NAME}</name>
@@ -196,7 +200,7 @@
                     <type>0</type>
                     <item>
                         <host>Filebeat</host>
-                        <key>filebeat.status</key>
+                        <key>proc.num[filebeat]</key>
                     </item>
                 </graph_item>
             </graph_items>
