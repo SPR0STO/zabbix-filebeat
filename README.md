@@ -1,41 +1,40 @@
-# Filebeat Zabbix Template
+# Filebeat Zabbix Template 
 
-Zabbix plugin for basic "filebeat" monitoring. 
+Zabbix plugin for basic monitoring a "filebeat" daemon. 
 
-## Features:
+## Features: 
 
-- Checking if filebeat service is not active on the machine and alert with a 
-trigger; 
-- Checking if filebeat version is changed on the machine and alert with a 
-trigger; 
-- Checking if no data about filebeat service status or filebeat version on the 
-machine and alert with a trigger. 
+ Alert with a trigger if: 
 
-## Requirements
+   - "filebeat" daemon is not active; 
+   - "filebeat" version is changed; 
+   - no data about "filebeat" daemon status or version. 
 
-- Linux OS on a filebeat node with zabbix agent installed.
+## Requirements 
 
-## Installation
+- Linux OS on a filebeat node with zabbix agent installed. 
 
-This only needs to be setup on the filebeat node and zabbix-server.
+## Installation 
 
-### Zabbix Agent
+This only needs to be setup on the filebeat node and zabbix-server. 
 
-Copy filebeat.conf to conf.d or add UserParameter to your agent config.
+### Zabbix Agent 
 
-### Zabbix Frontend
+Copy filebeat.conf to conf.d or add UserParameter to your agent config. 
 
-Import the filebeat.xml template (supports zabbix 3.4 and greater).
-Add node to the newly imported template.
+### Zabbix Frontend 
 
-## Important note
+Import the filebeat.xml template (supports zabbix 3.4 and greater). 
+Add node to the newly imported template. 
+
+## Important note 
 
 This is a very little and basic plugin. I just wanted to share this if you also 
-need a handy and simple plugin to check some filebeat info.
+need a handy and simple plugin to check some filebeat info. 
 
-## License
+## License 
 
 This plugin is published under **GNU General Public License v3.0**. Feel free to
-use and modify this as you need.
+use and modify this as you need. 
 
-Copyright (©) [pr0sto](https://github.com/pr0sto), 2018
+Copyright (©) [pr0sto](https://github.com/pr0sto), 2018 

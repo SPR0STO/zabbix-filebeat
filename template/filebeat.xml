@@ -11,7 +11,7 @@
         <template>
             <template>Filebeat</template>
             <name>Filebeat</name>
-            <description>Monitoring Filebeat daemon</description>
+            <description>Basic monitoring a "filebeat" daemon</description>
             <groups>
                 <group>
                     <name>Templates</name>
@@ -29,7 +29,7 @@
                     <snmp_community/>
                     <snmp_oid/>
                     <key>filebeat.version</key>
-                    <delay>{$FILEBEAT_RENEW}</delay>
+                    <delay>{$FILEBEAT_TIMEOUT}</delay>
                     <history>90d</history>
                     <trends>0</trends>
                     <status>0</status>
