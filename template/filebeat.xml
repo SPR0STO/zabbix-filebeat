@@ -24,7 +24,7 @@
             </applications>
             <items>
                 <item>
-                    <name>Version</name>
+                    <name>Version of filebeat</name>
                     <type>0</type>
                     <snmp_community/>
                     <snmp_oid/>
@@ -65,7 +65,7 @@
                     <master_item/>
                 </item>
                 <item>
-                    <name>Status</name>
+                    <name>Status of filebeat</name>
                     <type>0</type>
                     <snmp_community/>
                     <snmp_oid/>
@@ -174,7 +174,7 @@
     </triggers>
     <graphs>
         <graph>
-            <name>Filebeat Status</name>
+            <name>Status of filebeat</name>
             <width>900</width>
             <height>200</height>
             <yaxismin>0.0000</yaxismin>
