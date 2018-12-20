@@ -28,6 +28,7 @@ your agent config.
 
 Import the [filebeat.xml](./template/filebeat.xml) template (supports 
 zabbix v.3.4 and greater). 
+
 Add node to the newly imported template. 
 
 ## Important note 
