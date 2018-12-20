@@ -4,7 +4,7 @@ Zabbix plugin for basic monitoring a "filebeat" daemon.
 
 ## Features: 
 
- Alert with a trigger if: 
+ Alert with a trigger when: 
 
    - "filebeat" daemon is not active; 
    - "filebeat" version is changed; 
@@ -12,7 +12,8 @@ Zabbix plugin for basic monitoring a "filebeat" daemon.
 
 ## Requirements 
 
-- Linux OS on a filebeat node with zabbix agent installed. 
+- Linux OS on a filebeat node with zabbix agent installed; 
+- Zabbix-server v.3.4. or greater.
 
 ## Installation 
 
@@ -20,11 +21,13 @@ This only needs to be setup on the filebeat node and zabbix-server.
 
 ### Zabbix Agent 
 
-Copy filebeat.conf to conf.d or add UserParameter to your agent config. 
+Copy [filebeat.conf](./agent/filebeat.conf) to conf.d or add UserParameter to 
+your agent config. 
 
 ### Zabbix Frontend 
 
-Import the filebeat.xml template (supports zabbix 3.4 and greater). 
+Import the [filebeat.xml](./template/filebeat.xml) template (supports 
+zabbix v.3.4 and greater). 
 Add node to the newly imported template. 
 
 ## Important note 
