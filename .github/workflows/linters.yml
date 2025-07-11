@@ -1,0 +1,13 @@
+name: Centralized linters
+
+on:
+  pull_request:
+    branches: [ main, acceptance, production ]
+  workflow_dispatch:
+
+jobs:
+  lint:
+    uses: SPR0STO/ci-templates/.github/workflows/linters.yml@main
+    with:
+      runner_os: ubuntu-latest
+      linters: '["yamllint", "black", "hadolint", "shfmt", "shellcheck", "markdownlint"]'
