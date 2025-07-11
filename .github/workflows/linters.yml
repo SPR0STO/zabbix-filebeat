@@ -2,7 +2,8 @@ name: Centralized linters
 
 on:
   pull_request:
-    branches: [ main, acceptance, production ]
+    branches:
+      - master
   workflow_dispatch:
 
 jobs:
